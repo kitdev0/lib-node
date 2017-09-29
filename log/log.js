@@ -31,7 +31,7 @@ var func = function (name) {
     this.info = function () { console.info(echo(service_name, 'INFO ', arguments)) }
     this.debug = function () { console.log(echo(service_name, 'DEBUG', arguments)) }
     this.fatal = function () { console.error(echo(service_name, 'FATAL', arguments)) }
-    this.track = function () { console.log(echo(service_name, 'TRACK', arguments)) }
+    this.trace = function () { console.log(echo(service_name, 'TRACE', arguments)) }
     this.getDateTime = function () { return getDateTime(); }
     this.dumpError = function (err) {
         if (typeof err === 'object') {
