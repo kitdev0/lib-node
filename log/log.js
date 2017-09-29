@@ -7,11 +7,12 @@
 const splice = '.'
 var func = function (name) {
     this.error = function () { console.error(echo(name, 'ERROR', arguments)) }
-    this.warn = function () { console.warn(echo(name, 'WARN', arguments)) }
-    this.info = function () { console.info(echo(name, 'INFO', arguments)) }
+    this.warn = function () { console.warn(echo(name, 'WARN ', arguments)) }
+    this.info = function () { console.info(echo(name, 'INFO ', arguments)) }
     this.debug = function () { console.log(echo(name, 'DEBUG', arguments)) }
     this.fatal = function () { console.log(echo(name, 'FATAL', arguments)) }
     this.track = function () { console.log(echo(name, 'TRACK', arguments)) }
+    this.getDateTime = function () {return getDateTime();},
     this.dumpError = function(err) {
         if (typeof err === 'object') {
             if (err.message) {
@@ -23,9 +24,6 @@ var func = function (name) {
         } else {
             console.log('dumpError :: argument is not an object');
         }
-    },
-    this.getDateTime = function () {
-        return getDateTime();
     }
 }
 var echo = function (name, type, args) {
@@ -42,7 +40,7 @@ var echo = function (name, type, args) {
             }
         }
     }
-    return '[' + type + ']' + '[' + name + '] :' + str
+    return  getDateTime() + ' [' + type + ']' + ' [' + name + '] : ' + str
     // console.error('[' + type + ']', '[' + name + ']', str)
 }
 
