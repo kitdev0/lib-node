@@ -25,12 +25,13 @@ console.info = console.log;
 
 const splice = '.'
 var func = function (name) {
-    this.error = function () { console.error(echo(name, 'ERROR', arguments)) }
-    this.warn = function () { console.warn(echo(name, 'WARN ', arguments)) }
-    this.info = function () { console.info(echo(name, 'INFO ', arguments)) }
-    this.debug = function () { console.log(echo(name, 'DEBUG', arguments)) }
-    this.fatal = function () { console.error(echo(name, 'FATAL', arguments)) }
-    this.track = function () { console.log(echo(name, 'TRACK', arguments)) }
+    var service_name = name;
+    this.error = function () { console.error(echo(service_name, 'ERROR', arguments)) }
+    this.warn = function () { console.warn(echo(service_name, 'WARN ', arguments)) }
+    this.info = function () { console.info(echo(service_name, 'INFO ', arguments)) }
+    this.debug = function () { console.log(echo(service_name, 'DEBUG', arguments)) }
+    this.fatal = function () { console.error(echo(service_name, 'FATAL', arguments)) }
+    this.track = function () { console.log(echo(service_name, 'TRACK', arguments)) }
     this.getDateTime = function () { return getDateTime(); }
     this.dumpError = function (err) {
         if (typeof err === 'object') {
@@ -44,6 +45,7 @@ var func = function (name) {
             console.log('dumpError :: argument is not an object');
         }
     }
+    this.setServiceName = function (name) { service_name = name};
 }
 
 var echo = function (name, type, args) {
