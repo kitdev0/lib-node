@@ -9,7 +9,7 @@ var util = require('util');
 var log_file;
 var log_stdout = process.stdout;
 var last_time = '';
-var log_path = __dirname;
+var log_path = __dirname + '/';
 
 console.log = function () {
     // console.log('#A');
@@ -46,6 +46,9 @@ var func = function (name) {
         }
     }
     this.setServiceName = function (name) { service_name = name};
+    this.setPath = function (path_name) { 
+        createFile(path_name, last_time);
+    }
 }
 
 var echo = function (name, type, args) {
@@ -88,8 +91,13 @@ function checkLogFileName() {
 
     if (last_time != time) {
         last_time = time;
-        log_file = fs.createWriteStream(log_path + last_time + '.log', { flags: 'a' });
+        createFile(log_path,last_time);
     }
+}
+
+function createFile(path_name, file_name){
+    log_path = path_name;
+    log_file = fs.createWriteStream(log_path + file_name + '.log', { flags: 'a' });
 }
 
 function pad(num, size) {
