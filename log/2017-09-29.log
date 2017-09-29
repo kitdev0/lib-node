@@ -1,4 +1,0 @@
-20:08:10.215 [DEBUG] [test] : debug 
-20:08:10.220 [ERROR] [test] : error 
-20:08:10.221 [FATAL] [mqtt/test] : fatal 
-20:08:10.221 [INFO ] [mqtt/test] : info 
