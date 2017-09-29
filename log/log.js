@@ -83,6 +83,15 @@ function getDateTime() {
     return time;
 }
 
+function getTime() {
+    var date = new Date();
+    var time = pad(date.getHours(), 2)
+        + ':' + pad(date.getMinutes(), 2)
+        + ':' + pad(date.getSeconds(), 2)
+        + '.' + pad(date.getMilliseconds(), 3);
+    return time;
+}
+
 function checkLogFileName() {
     var date = new Date();
     var time = date.getFullYear()

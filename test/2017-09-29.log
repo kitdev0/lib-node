@@ -1,0 +1,4 @@
+20:08:10.222 [TRACE] [mqtt/test] : track 
+20:08:10.222 [WARN ] [mqtt/test] : warning 
+20:08:10.222 [DEBUG] [mqtt/test] : Time =>  2017-09-29 20:08:10.222 
+20:08:12.228 [WARN ] [mqtt/test] : warning =>  0 
